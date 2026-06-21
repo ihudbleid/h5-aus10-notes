@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>澳洲幸运10 – 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background: #f4f7fc;
+            color: #1d2b3a;
+            line-height: 1.6;
+            padding: 24px 16px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* 网格卡片背景 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 24px 20px;
+            box-shadow: 0 6px 18px rgba(0, 40, 60, 0.06);
+            border: 1px solid #dbe9f2;
+            transition: box-shadow 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(21, 94, 117, 0.08);
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0b4f6c;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card h2 .accent {
+            display: inline-block;
+            width: 6px;
+            height: 20px;
+            border-radius: 20px;
+            background: #2a9d8f;
+            flex-shrink: 0;
+        }
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2a3f4b;
+            margin-bottom: 10px;
+        }
+        .card ul, .card ol {
+            padding-left: 22px;
+            margin: 8px 0 4px;
+        }
+        .card li {
+            margin-bottom: 6px;
+        }
+
+        /* hero区域 */
+        .hero {
+            background: linear-gradient(135deg, #e7f3f0 0%, #dce8ed 100%);
+            border-radius: 28px;
+            padding: 28px 22px;
+            margin-bottom: 24px;
+            border-left: 6px solid #2a9d8f;
+        }
+        .hero h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #063b4a;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            color: #1d5b6e;
+            max-width: 520px;
+        }
+
+        /* 点缀色与标签 */
+        .badge {
+            display: inline-block;
+            background: #2a9d8f;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 12px;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            margin-right: 6px;
+        }
+        .badge-soft {
+            background: #d3eae4;
+            color: #0b5b52;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 4px;
+        }
+        .tag {
+            background: #eef6f9;
+            color: #1b5c6b;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            border: 1px solid #c6dde6;
+        }
+
+        /* 链接特殊样式 */
+        .inline-link {
+            color: #0b6b7a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1.5px solid #98c1c9;
+            transition: border-color 0.2s, background 0.2s;
+            padding: 0 2px;
+        }
+        .inline-link:hover {
+            border-bottom-color: #2a9d8f;
+            background: #e2f0f1;
+            border-radius: 4px;
+        }
+
+        /* 按钮/提示 (非链接) */
+        .note-box {
+            background: #f4fbf9;
+            border-radius: 16px;
+            padding: 16px 18px;
+            border-left: 4px solid #2a9d8f;
+            margin-top: 6px;
+        }
+        .note-box p {
+            margin-bottom: 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e0eef2;
+            padding: 14px 0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #124d5e;
+            margin-bottom: 4px;
+            display: flex;
+            gap: 8px;
+        }
+        .faq-q::before {
+            content: "▹";
+            color: #2a9d8f;
+        }
+        .faq-a {
+            color: #2f4b57;
+            padding-left: 22px;
+            font-size: 0.9rem;
+        }
+
+        .footer-meta {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 0.8rem;
+            color: #708b96;
+            border-top: 1px solid #d0e1e8;
+            padding-top: 24px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            body {
+                padding: 16px 12px 30px;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .card {
+                padding: 20px 16px;
+            }
+            .card h2 {
+                font-size: 1.15rem;
+            }
+        }
+        @media (min-width: 640px) {
+            .card-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .card.full {
+                grid-column: 1 / -1;
+            }
+            .hero {
+                padding: 36px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>澳洲幸运10 · 产品说明</h1>
+        <div class="sub">持续关注，熟悉节奏，理性使用——一份为再次访问你准备的整理。</div>
+        <div class="tag-list" style="margin-top: 16px;">
+            <span class="tag">摘要</span>
+            <span class="tag">亮点</span>
+            <span class="tag">使用建议</span>
+            <span class="tag">FAQ</span>
+        </div>
+    </div>
+
+    <!-- 卡片网格 -->
+    <div class="card-grid">
+
+        <!-- 摘要卡片 全宽 -->
+        <div class="card full">
+            <h2><span class="accent"></span> 摘要 · 它是什么</h2>
+            <p>「澳洲幸运10」是一个聚焦开奖结果与走势参考的信息页面，面向希望跟踪特定数字型游戏动态的用户。页面结构简洁，主要提供近期号码、历史记录以及辅助参考列表。无论你是初次了解还是想重新熟悉界面，都可以直接通过下文链接访问 <a href="https://h5-aus10.com" class="inline-link">澳洲幸运10</a> ，查看最新内容。</p>
+            <p>本说明从再次使用、页面收藏与持续关注的角度切入，帮你快速了解它的特点、适用场景和注意事项。不夸大，不诱导，只呈现你真正需要知道的部分。</p>
+        </div>
+
+        <!-- 亮点卡片 -->
+        <div class="card">
+            <h2><span class="accent"></span> 亮点 · 为什么值得收藏</h2>
+            <ul>
+                <li><strong>轻量加载</strong> —— 页面针对移动端做了适配，加载快，不堆积无关模块。</li>
+                <li><strong>结果集中</strong> —— 开奖号码、总和、大小单双等核心信息在一屏内展示，减少滑动。</li>
+                <li><strong>历史参考</strong> —— 提供一定期数的往期记录，适合做简单趋势观察（非预测）。</li>
+                <li><strong>无强推广告</strong> —— 界面干净，不打断浏览，适合安静查看。</li>
+                <li><strong>便于重复访问</strong> —— 直接添加书签或保存到主屏幕，每次打开都是最新状态。</li>
+            </ul>
+        </div>
+
+        <!-- 使用建议卡片 -->
+        <div class="card">
+            <h2><span class="accent"></span> 使用建议 · 如何更顺手</h2>
+            <ol>
+                <li><strong>添加书签</strong> —— 将 <a href="https://h5-aus10.com" class="inline-link">澳洲幸运10</a> 加入浏览器收藏夹，或 iOS/Android 添加到主屏幕，下次一键直达。</li>
+                <li><strong>固定浏览时段</strong> —— 根据个人习惯，在每日固定时间打开查看，避免频繁刷新。</li>
+                <li><strong>结合笔记工具</strong> —— 如果你有记录习惯，可以把感兴趣的期数或特征随手记下，形成自己的小档案。</li>
+                <li><strong>注意网络环境</strong> —— 建议在稳定 Wi-Fi 或 4G/5G 下使用，页面加载体验更流畅。</li>
+                <li><strong>不依赖单一来源</strong> —— 可同时参考其他合规平台，多方核对，保持理性。</li>
+            </ol>
+            <div class="note-box">
+                <p>💡 <strong>小提示：</strong> 如果页面长时间未刷新，可以下拉页面触发自动更新，或手动刷新浏览器。</p>
+            </div>
+        </div>
+
+        <!-- 场景卡片 全宽 -->
+        <div class="card full">
+            <h2><span class="accent"></span> 适用场景 · 什么时候会用到</h2>
+            <p>整理了几个常见的使用时刻，你可以对照看看是否符合自己的习惯：</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 12px 0 4px;">
+                <span class="badge badge-soft">每日例行查看</span>
+                <span class="badge badge-soft">回顾近期走势</span>
+                <span class="badge badge-soft">与朋友讨论时参考</span>
+                <span class="badge badge-soft">记录个人观察</span>
+                <span class="badge badge-soft">空闲时浏览</span>
+            </div>
+            <p style="margin-top: 10px;">并不需要时刻盯着，把它当作一个可随时翻阅的信息板就好。再次访问时，页面会自动呈现最新内容，无需额外操作。</p>
+        </div>
+
+        <!-- FAQ摘要卡片 全宽 -->
+        <div class="card full">
+            <h2><span class="accent"></span> 常见疑问 · FAQ 摘要</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">页面数据多久更新一次？</div>
+                <div class="faq-a">通常每期开奖后数秒至一分钟内更新，具体以实际加载为准。建议不要频繁刷新，耐心等待自动同步。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">能否查看更早期的历史记录？</div>
+                <div class="faq-a">页面默认展示近期一定期数的记录，更早的数据可能未保留。如果需要长期存档，建议自行截图或记录关键期号。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">移动端显示是否完整？</div>
+                <div class="faq-a">完全适配手机屏幕，横竖屏均可正常阅读。部分老款浏览器可能出现样式偏移，推荐使用最新版 Chrome 或 Safari。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">这个页面和官方有关系吗？</div>
+                <div class="faq-a">本介绍页仅为独立说明，旨在帮助用户了解和使用 <a href="https://h5-aus10.com" class="inline-link">澳洲幸运10</a> 这一站点。所有信息均以页面实际展示为准，不涉及任何官方授权或合作关系。</div>
+            </div>
+            <div style="margin-top: 10px; text-align: right;">
+                <span style="background: #e6f1f4; padding: 4px 16px; border-radius: 30px; font-size: 0.75rem; color: #0b5b6b;">更多问题？直接访问站点内查看</span>
+            </div>
+        </div>
+
+        <!-- 可信但克制的访问说明 卡片 -->
+        <div class="card full">
+            <h2><span class="accent"></span> 访问说明 · 可信且克制</h2>
+            <p>我们希望你以<strong>了解、观察、参考</strong>的心态使用这个页面。以下几点值得留意：</p>
+            <ul>
+                <li><strong>不预测、不保证</strong> —— 所有历史数据仅作为已发生结果的展示，无法用于预测未来。</li>
+                <li><strong>不鼓励沉迷</strong> —— 请合理安排时间，不要让浏览影响工作、学习或休息。</li>
+                <li><strong>信息仅供参考</strong> —— 页面内容可能因技术原因延迟或存在误差，正式决策请以官方源头为准。</li>
+                <li><strong>收藏即认同</strong> —— 当你选择保存 <a href="https://h5-aus10.com" class="inline-link">澳洲幸运10</a> 到书签时，意味着你已理解以上说明，并愿意自主、负责地使用它。</li>
+            </ul>
+            <div class="note-box" style="border-left-color: #6b9ba8; background: #eff7f5;">
+                <p>📌 再次访问的窍门：将链接保存在备忘录或桌面文件夹，方便快速找回。保持定期清理旧书签的习惯，保留真正需要的页面。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-meta">
+        <p>页面说明 · 仅供参考 · 独立整理</p>
+        <p style="margin-top: 4px;">内容基于 <a href="https://h5-aus10.com" class="inline-link" style="font-weight: 400;">澳洲幸运10</a> 站点特性归纳，具体以实际页面为准</p>
+        <p style="margin-top: 12px; opacity: 0.6;">持续关注 · 理性使用</p>
+    </div>
+
+</div>
+</body>
+</html>
