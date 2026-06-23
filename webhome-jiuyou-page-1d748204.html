@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游娱乐 · 知识库与站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafaf9;
+            color: #1c1c1e;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
+            padding: 2rem 1.25rem;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 2.8rem 2.2rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02), 0 8px 32px rgba(0, 0, 0, 0.03);
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+
+        .subhead {
+            font-size: 0.95rem;
+            color: #6b6b70;
+            border-left: 3px solid #d4d4d8;
+            padding-left: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 2.4rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 3px;
+            height: 1.1rem;
+            background: #1a1a1c;
+            border-radius: 2px;
+        }
+
+        .desc-text {
+            font-size: 0.95rem;
+            color: #2c2c30;
+            margin-bottom: 1.1rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.25rem 0 1.8rem;
+        }
+
+        .info-card {
+            background: #f5f5f7;
+            border-radius: 14px;
+            padding: 1rem 1.1rem;
+            transition: background 0.2s;
+        }
+
+        .info-card:hover {
+            background: #eaeaed;
+        }
+
+        .info-card .label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #8e8e93;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-card .value {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1c1c1e;
+        }
+
+        .info-card .value a {
+            color: #1c1c1e;
+            text-decoration: none;
+            border-bottom: 1px solid #c7c7cc;
+            transition: border-color 0.15s;
+        }
+
+        .info-card .value a:hover {
+            border-color: #1c1c1e;
+        }
+
+        .note-box {
+            background: #f0efed;
+            border-radius: 16px;
+            padding: 1.2rem 1.4rem;
+            margin: 2rem 0 1.8rem;
+            font-size: 0.9rem;
+            color: #2b2b2e;
+            border-left: 4px solid #8e8e93;
+        }
+
+        .note-box strong {
+            font-weight: 600;
+        }
+
+        .related-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.8rem 0 0;
+        }
+
+        .related-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eaeaed;
+            font-size: 0.9rem;
+            color: #3a3a3e;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .related-list li:last-child {
+            border-bottom: 0;
+        }
+
+        .related-list .bullet {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            background: #a1a1a6;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.5em;
+        }
+
+        .faq-preview {
+            margin-top: 1rem;
+            padding: 0.9rem 0 0.2rem;
+            border-top: 1px solid #e5e5ea;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #1c1c1e;
+            margin: 1rem 0 0.25rem;
+        }
+
+        .faq-a {
+            font-size: 0.88rem;
+            color: #515154;
+            padding-left: 0.2rem;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e5e5ea;
+            margin: 2rem 0 0.5rem;
+        }
+
+        .footer-note {
+            font-size: 0.78rem;
+            color: #8e8e93;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .inline-link {
+            color: #1c1c1e;
+            text-decoration: underline;
+            text-decoration-color: #c7c7cc;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: text-decoration-color 0.15s;
+        }
+
+        .inline-link:hover {
+            text-decoration-color: #1c1c1e;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
+                border-radius: 16px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .subhead {
+                font-size: 0.88rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>九游娱乐</h1>
+    <div class="subhead">知识库入口 · 站点介绍与可信说明</div>
+
+    <p class="desc-text">
+        <a href="https://webhome-jiuyou.com" class="inline-link">九游娱乐</a> 
+        定位于综合性数字娱乐信息平台，持续整理并呈现与休闲、文化、互动体验相关的知识内容。
+        本站从信息聚合与可信梳理出发，为访问者提供结构化的资料参考，帮助用户快速理解平台背景、服务边界以及相关资源脉络。
+    </p>
+
+    <div class="section-title">站点属性</div>
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="label">领域</div>
+            <div class="value">数字娱乐 · 知识索引</div>
+        </div>
+        <div class="info-card">
+            <div class="label">定位</div>
+            <div class="value">信息说明与入口</div>
+        </div>
+        <div class="info-card">
+            <div class="label">主要语言</div>
+            <div class="value">中文</div>
+        </div>
+        <div class="info-card">
+            <div class="label">核心链接</div>
+            <div class="value"><a href="https://webhome-jiuyou.com">九游娱乐</a></div>
+        </div>
+    </div>
+
+    <div class="section-title">内容说明</div>
+    <p class="desc-text">
+        本知识库以目录式结构组织信息模块，涵盖平台概述、功能分类、常见问题摘要及相关参考条目。
+        所有说明均基于可验证的公开材料进行整理，不包含未经核实的操作指引或承诺性表述。
+        如需获取最新动态或完整资源，可直接参阅 
+        <a href="https://webhome-jiuyou.com" class="inline-link">九游娱乐</a> 
+        主站页面。
+    </p>
+
+    <div class="note-box">
+        <strong>提示</strong> — 本页面为静态知识索引，不收集用户信息，不提供下载、充值或账户操作功能。
+        所有外部引用均以超链接形式标注，建议访问前确认网络环境安全。
+    </div>
+
+    <div class="section-title">相关信息</div>
+    <ul class="related-list">
+        <li><span class="bullet"></span>娱乐内容分类索引 (休闲、益智、文化)</li>
+        <li><span class="bullet"></span>平台服务边界与常见用语说明</li>
+        <li><span class="bullet"></span>访问须知与设备兼容参考</li>
+        <li><span class="bullet"></span>内容更新记录与修订日志</li>
+        <li><span class="bullet"></span>联系渠道与信息反馈方式</li>
+    </ul>
+
+    <div class="faq-preview">
+        <div class="faq-q">Q: 什么是九游娱乐知识库？</div>
+        <div class="faq-a">A: 这是一个围绕 <a href="https://webhome-jiuyou.com" class="inline-link">九游娱乐</a> 建立的静态说明页面，用于提供背景介绍、特征梳理和常见问题摘要，旨在帮助用户快速了解站点全貌。</div>
+
+        <div class="faq-q">Q: 信息更新频率如何？</div>
+        <div class="faq-a">A: 本知识库随主站内容调整进行阶段性更新，以保持与公开信息的一致性。具体修订记录可查阅相关日志部分。</div>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        © 知识库入口 · 内容仅供参考 · <a href="https://webhome-jiuyou.com" class="inline-link">九游娱乐</a>
+    </div>
+</div>
+</body>
+</html>
