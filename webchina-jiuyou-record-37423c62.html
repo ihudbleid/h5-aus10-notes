@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游娱乐 · 知识库与入口指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f8f7;
+      color: #1c2e36;
+      line-height: 1.6;
+      padding: 1.5rem;
+    }
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* header / 标题区 */
+    .knowledge-header {
+      text-align: center;
+      padding: 1.5rem 0 1rem;
+      border-bottom: 1px solid rgba(0, 140, 130, 0.15);
+    }
+    .knowledge-header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #0f5e59;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .knowledge-header h1 small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #2b7a76;
+      background: #d9f0ed;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+    }
+    .sub-head {
+      margin-top: 0.25rem;
+      color: #3b6f6b;
+      font-size: 1rem;
+    }
+
+    /* 网格卡片系统 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 960px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem 1.5rem;
+      box-shadow: 0 4px 14px rgba(0, 80, 70, 0.06);
+      border: 1px solid #d6ebe8;
+      transition: transform 0.2s, box-shadow 0.25s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 120, 110, 0.08);
+      border-color: #9fd4ce;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0b554f;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card h3::before {
+      content: "▹";
+      color: #1e8f87;
+      font-size: 1.4rem;
+    }
+    .card p {
+      color: #2f4a47;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .card ul li {
+      margin-bottom: 0.35rem;
+      padding-left: 1.2rem;
+      position: relative;
+      font-size: 0.92rem;
+      color: #1d3d3a;
+    }
+    .card ul li::before {
+      content: "•";
+      color: #2ba39a;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* 说明 + 提示区 融合布局 */
+    .insight-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.2rem 0;
+    }
+    @media (min-width: 720px) {
+      .insight-section {
+        flex-direction: row;
+      }
+      .insight-box {
+        flex: 1;
+      }
+    }
+    .insight-box {
+      background: #e7f3f1;
+      padding: 1.8rem 1.8rem 1.6rem;
+      border-radius: 24px;
+      border-left: 6px solid #1d9087;
+    }
+    .insight-box h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #094b46;
+      margin-bottom: 0.8rem;
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .insight-box p {
+      font-size: 0.96rem;
+      margin-bottom: 0.5rem;
+      color: #274f4a;
+    }
+    .insight-box strong {
+      color: #0a5f58;
+    }
+    .note-box {
+      background: #dff0ed;
+      padding: 1.8rem 1.8rem 1.6rem;
+      border-radius: 24px;
+      border-right: 6px solid #168278;
+    }
+    .note-box h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #094b46;
+      margin-bottom: 0.8rem;
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .note-box p, .note-box li {
+      font-size: 0.96rem;
+      color: #1b4a45;
+    }
+    .note-box ul {
+      list-style: none;
+      padding-left: 0.5rem;
+      margin-top: 0.6rem;
+    }
+    .note-box ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .note-box ul li::before {
+      content: "—";
+      color: #1f8c83;
+      position: absolute;
+      left: 0;
+    }
+
+    /* 相关信息区 - 紧凑faq风格 */
+    .related-info {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.8rem 2rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 6px 14px rgba(0, 80, 70, 0.04);
+      border: 1px solid #cfe3df;
+    }
+    .related-info h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0b5b55;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .related-info h2 span {
+      background: #1d9087;
+      color: white;
+      font-size: 0.8rem;
+      padding: 0.1rem 0.9rem;
+      border-radius: 20px;
+    }
+    .faq-item {
+      border-bottom: 1px solid #d5e7e3;
+      padding: 0.8rem 0;
+    }
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+    .faq-item strong {
+      color: #12655e;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item p {
+      color: #2b5550;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* 入口链接句子 - 自然融入 */
+    .entry-sentence {
+      background: #e1f1ee;
+      border-radius: 60px;
+      padding: 1rem 1.8rem;
+      margin: 2rem 0 1.5rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #1b4f4a;
+      border: 1px solid #b7dbd5;
+    }
+    .entry-sentence a {
+      color: #0a6e66;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #0a6e66;
+      padding-bottom: 2px;
+      transition: color 0.15s;
+    }
+    .entry-sentence a:hover {
+      color: #145f58;
+      border-bottom-color: #145f58;
+    }
+
+    /* footer */
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #c6ddd8;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #51706b;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem;
+      }
+      .knowledge-header h1 {
+        font-size: 1.6rem;
+        flex-wrap: wrap;
+      }
+      .card {
+        padding: 1.4rem 1.2rem;
+      }
+      .insight-box, .note-box {
+        padding: 1.4rem 1.2rem;
+      }
+      .related-info {
+        padding: 1.2rem 1.2rem 1.5rem;
+      }
+      .entry-sentence {
+        padding: 0.8rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 头部 / 知识库标题 -->
+  <header class="knowledge-header">
+    <h1>
+      📚 九游娱乐
+      <small>· 稳定入口说明</small>
+    </h1>
+    <div class="sub-head">目录式知识库 · 温和引导 · 信息聚合</div>
+  </header>
+
+  <!-- 网格卡片：目录感布局 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>服务概览</h3>
+      <p>平台围绕娱乐场景提供多元内容支持，涵盖休闲、互动与信息聚合。当前入口保持稳定，便于用户查阅基础功能与动态。</p>
+      <ul>
+        <li>休闲内容分类索引</li>
+        <li>互动社区基础指引</li>
+        <li>信息更新节点说明</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>页面结构说明</h3>
+      <p>首页采用卡片式分区，帮助快速定位兴趣区域。每一模块均提供简要描述，降低浏览成本，提升查找效率。</p>
+      <ul>
+        <li>卡片标题即分区主题</li>
+        <li>列表展示核心要点</li>
+        <li>无冗余跳转，聚焦内容本身</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>使用场景参考</h3>
+      <p>适合希望获取稳定信息、了解平台基本构成的新用户，也适合需要快速回顾页面布局的已有用户。</p>
+      <ul>
+        <li>首次了解平台结构</li>
+        <li>确认内容入口是否有效</li>
+        <li>查看常见问题摘要</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 说明区 + 提示区 左右/上下组合 -->
+  <div class="insight-section">
+    <div class="insight-box">
+      <h2>📌 说明区</h2>
+      <p>本页面作为<strong>知识库式介绍页</strong>，集中呈现与 <a href="https://webchina-jiuyou.com" style="color:#0a6e66;font-weight:500;text-decoration:underline;">九游娱乐</a> 相关的模块说明、内容分类和入口指引。所有信息均基于公开可查的功能框架整理，不涉及非公开或夸大描述。</p>
+      <p>页面内每个卡片、提示区块均对应一个知识主题，用户可依据自身需求查阅。链接指向官方主站，保持长期有效。</p>
+    </div>
+    <div class="note-box">
+      <h2>💡 提示区</h2>
+      <p>若你正在寻找清晰的页面说明或希望了解平台内容组织方式，以下建议可供参考：</p>
+      <ul>
+        <li>从顶部卡片开始浏览，快速熟悉分类</li>
+        <li>如需特定功能解释，可关注“相关信息”区块</li>
+        <li>保持浏览器版本更新，以获得最佳显示效果</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 相关信息区：FAQ 摘要风格 -->
+  <div class="related-info">
+    <h2>📋 相关信息 <span>FAQ 摘要</span></h2>
+    <div class="faq-item">
+      <strong>如何确认当前入口是否稳定？</strong>
+      <p>本页面作为介绍页长期维护，其中主站链接指向 <a href="https://webchina-jiuyou.com" style="color:#0a6e66;font-weight:500;">九游娱乐</a>，域名保持稳定。可定期关注页面更新说明。</p>
+    </div>
+    <div class="faq-item">
+      <strong>页面中的“目录式布局”是什么意思？</strong>
+      <p>指通过卡片网格将不同主题分区展示，每个卡片承担一个知识模块的角色，类似目录索引，让信息结构一目了然。</p>
+    </div>
+    <div class="faq-item">
+      <strong>是否有功能变更通知？</strong>
+      <p>功能调整通常通过页面内提示区或相关板块更新反映，建议直接浏览对应卡片标题下的内容说明。</p>
+    </div>
+  </div>
+
+  <!-- 自然嵌入链接的句子 a标签可见文本 == '九游娱乐' -->
+  <div class="entry-sentence">
+    如果你想进一步了解平台内容，可以直接参考 <a href="https://webchina-jiuyou.com">九游娱乐</a> 提供的信息模块；本站作为知识入口，仅做结构化说明。
+  </div>
+
+  <!-- 底部 -->
+  <footer class="footer-note">
+    知识库介绍页 · 内容基于公开信息整理 · 页面结构不定期优化
+  </footer>
+
+</div>
+</body>
+</html>
